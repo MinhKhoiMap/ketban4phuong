@@ -1,0 +1,81 @@
+.mywall__navigation {
+  width: 100%;
+  height: var(--nav-bar-height);
+  padding: 0 12px;
+  background-image: linear-gradient(45deg, #fd267a, #ff6036);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mywall__proflie {
+  padding: 4px 10px 4px 4px;
+  display: flex;
+  align-items: center;
+  transition: all 0.1s ease-in;
+  border-radius: 36px;
+  overflow: hidden;
+}
+
+.mywall__proflie:hover {
+  background-color: rgba(17, 20, 24, 0.78);
+}
+
+.mywall__proflie-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.mywall__proflie-avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.mywall__proflie-name {
+  margin-left: 8px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+.mywall__tools-explore {
+  width: 34px;
+  height: 34px;
+  background-color: rgba(17, 20, 24, 0.78);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mywall__tools-explore svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  transition: all 0.1s linear;
+}
+
+.mywall__tools-explore:hover svg {
+  fill: #ff4458;
+}
+
+.back-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #000;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-out;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,62 @@
+.start-home__wrapper {
+  background-image: url("/public/images/starthome_background.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: scroll;
+  user-select: none;
+}
+
+.start-home__wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.start-home__overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.start-home__main-section {
+  width: 100%;
+  height: 100vh;
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.start-home__main-section h1 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 13.5rem;
+}
+
+.start-home__main-section button {
+  font-family: inherit;
+  margin-top: 30px;
+  padding: 10px 55px;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 500;
+  background-image: linear-gradient(45deg, #fd267a, #ff6036);
+  transition: all 0.1s linear;
+}
+
+.start-home__main-section button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.start-home__body {
+  padding: 20px 40px;
+  background-color: #fff;
+}

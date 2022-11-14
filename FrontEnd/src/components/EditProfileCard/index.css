@@ -1,0 +1,131 @@
+.edit-card {
+  padding-bottom: 90px;
+}
+
+.edit-card__change-view-btn-group {
+  background-color: #000;
+  width: 100%;
+  top: 0;
+  position: relative;
+}
+
+.edit-card__change-view-btn {
+  padding: 11px 0;
+  width: 50%;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  border-bottom: 1px solid #3c444f;
+  cursor: pointer;
+}
+
+.edit-card__change-view-btn:first-child {
+  border-right: 1px solid #3c444f;
+}
+
+.current {
+  color: #ff4458;
+}
+
+.edit-card__body {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.edit-card__body::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
+}
+
+.edit-card__edit-img-group {
+  padding: 8px 4px;
+}
+
+.edit-card__edit-img-wrapper {
+  width: 100%;
+  height: 490px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-card__edit-img {
+  margin: 0 4px 8px;
+  width: calc((100% - 28px) / 3);
+  height: 150px;
+  cursor: pointer;
+  position: relative;
+  border: 4px dashed #3c444f;
+  border-radius: 8px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.edit-card__edit-img.edit-card__edit-img--has-data {
+  border: none;
+  cursor: grab;
+}
+
+.edit-card__add-img-btn,
+.edit-card__delete-img-btn {
+  position: absolute;
+  bottom: -10px;
+  right: -5px;
+}
+
+.edit-card__add-img-icon,
+.edit-card__delete-img-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.edit-card__delete-img-icon {
+  background-color: #fff;
+}
+
+.edit-card__add-img-icon {
+  background-color: #ff4458;
+}
+
+.edit-card__edit-img-note {
+  margin: 10px 0;
+  padding: 0 16px;
+  color: #939ba7;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.edit-card__img-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-card__img-footer .btn-primary {
+  padding-left: 50px;
+  padding-right: 50px;
+  display: block;
+}
+
+.edit-card__footer {
+  width: 100%;
+  padding-bottom: 18px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, #fff0 -5%, #000 20%);
+}
+
+.edit-card__footer .btn-primary {
+  padding-right: 18px;
+  padding-left: 16px;
+}

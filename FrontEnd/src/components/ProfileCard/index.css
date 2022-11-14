@@ -1,0 +1,41 @@
+.profile-card__wrapper {
+  background-color: #000;
+  overflow-y: auto;
+}
+
+.profile-card__wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.profile-card__wrapper .card__img-slide {
+  height: calc(100% * 3.5 / 5);
+}
+
+.profile-card__pre-info {
+  color: #e9ebee;
+  padding: 10px;
+  border-bottom: 1px solid #3c444f;
+}
+
+.profile-card__name {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.profile-card__age {
+  margin-left: 8px;
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+.profile-card__edit-btn-wrapper {
+  height: calc(100% / 5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 18px;
+}
+
+.profile-card__wrapper .change-slide-btn__container i {
+  font-size: 2.2rem;
+}

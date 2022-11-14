@@ -1,0 +1,147 @@
+.account-modal__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-modal__section {
+  width: 460px;
+  padding: 36px 44px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.account-modal__header-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.account-modal__header-label {
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.account-modal__btn-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-modal__btn-wrap button {
+  font-family: "Readex Pro", sans-serif;
+  text-transform: capitalize;
+}
+
+.account-modal__btn-wrap .log-in-with-gg {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: #fff;
+  padding: 6px 40px;
+  border: 2px solid #b9bfc8;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.account-modal__btn-wrap .log-in-with-gg:hover {
+  background-color: #e9ebee;
+  cursor: pointer;
+}
+
+.account-modal__btn-wrap .log-in-with-gg span {
+  margin-left: 10px;
+}
+
+.account-modal__btn-wrap .another-options {
+  margin-top: 18px;
+  border: none;
+  background-color: unset;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.account-modal__privacy {
+  margin: 20px 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.account-modal__privacy span {
+  color: var(--text-color);
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-underline:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.account-modal__footer {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-color);
+}
+
+.account-modal__footer h1 {
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.account-modal__footer figure {
+  margin-right: -20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-modal__footer figure img {
+  margin-right: 20px;
+}
+
+.close-modal-btn {
+  font-size: 2.8rem;
+  color: var(--text-color);
+  background-color: unset;
+  border: none;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  transition: transform 0.34s linear;
+  transform-origin: center;
+}
+
+.close-modal-btn:hover {
+  transform: rotate(135deg);
+  cursor: pointer;
+}

@@ -1,0 +1,9 @@
+:root {
+  --nav-bar-height: 87px;
+}
+
+.mywall__controller {
+  width: 25%;
+  height: 100vh;
+  border-right: 1px solid #3c444f;
+}

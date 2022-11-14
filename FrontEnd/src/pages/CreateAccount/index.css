@@ -1,0 +1,166 @@
+.create-account__main {
+  height: 100vh;
+  background-color: #000;
+}
+
+.create-account__header {
+  padding-left: 40px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.create-account-logo svg {
+  height: 40px;
+}
+
+.create-account__container {
+  display: flex;
+}
+
+.create-account__body {
+  max-width: 900px;
+  height: calc(100vh - 96px);
+  padding-top: 20px;
+  padding-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow-y: auto;
+}
+
+.create-account__body::-webkit-scrollbar {
+  display: none;
+}
+
+.create-account__label {
+  padding: 36px 0;
+  color: #e9ebee;
+  font-size: 32px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+}
+
+.create-account__info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-account__info-main {
+  width: 50%;
+}
+
+.create-account__info-main label {
+  color: #e9ebee;
+  font-size: 1.6rem;
+  margin: 10px 0;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.create-account__info-main input {
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  caret-color: #1786ff;
+  font-size: 1.5rem;
+}
+
+.create-account__info-main input::placeholder {
+  font-family: "Readex Pro", sans-serif;
+  font-size: 1.4rem;
+}
+
+.create-account__info-group {
+  margin-bottom: 28px;
+}
+
+input#name {
+  width: 80%;
+  padding: 16px 20px;
+  background-color: #111418;
+  border: 2px solid #3c444f;
+  color: #e9ebee;
+}
+
+input#name:focus {
+  border-color: #656e7b;
+}
+
+#birthday input {
+  margin-right: 10px;
+  width: 96px;
+  height: 57px;
+  text-align: center;
+  background-color: #111418;
+  border: 2px solid #3c444f;
+  color: #e9ebee;
+}
+
+#birthday input::placeholder {
+  text-align: center;
+}
+
+#gender input,
+#genderRefer input {
+  margin-right: 10px;
+  width: 86px;
+  height: 50px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: #111418;
+  border: 2px solid #3c444f;
+  color: #e9ebee;
+  font-size: 1.4rem;
+  font-family: "Readex Pro", sans-serif;
+}
+
+.create-account__info-photos {
+  width: 50%;
+}
+
+.uploadImage-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.uploadImage-input {
+  margin: 0 4px 8px;
+  color: transparent;
+  width: 138px;
+  height: 185px;
+  background-color: #21262e;
+  border: 4px dashed #3c444f;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.create-account__footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.create-account__footer p {
+  margin-top: 20px;
+  color: #939ba7;
+  font-size: 1.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.create-account__footer p:hover {
+  color: #fff;
+}
+
+.create-account_continue-btn {
+  padding: 10px 24px;
+  color: #656e7b;
+  background-color: #21262e;
+  font-family: "Readex Pro", sans-serif;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}

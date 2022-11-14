@@ -1,0 +1,61 @@
+:root {
+  --feature-options: 42px;
+}
+
+.mywall__feature-section {
+  height: calc(100vh - var(--nav-bar-height));
+  overflow: hidden;
+  background-color: #000;
+  user-select: none;
+}
+
+.mywall__feature-parts {
+  height: var(--feature-options);
+  margin-left: -16px;
+  padding: 12px 20px;
+  display: flex;
+  position: relative;
+}
+
+.mywall__feature-options {
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.mywall__feature-parts p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.mywall__feature-parts .underline {
+  /* width: 90px; */
+  height: 3px;
+  background-color: #ff4458;
+  position: absolute;
+  bottom: 8px;
+  transition: all 0.2s ease-out;
+}
+
+.mywall__feature-body {
+  padding: 4px 8px;
+  width: 100%;
+  height: calc(100vh - var(--nav-bar-height) - var(--feature-options) - 16px);
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mywall__feature-body::-webkit-scrollbar {
+  display: none;
+}
+
+.mywall__feature-body .likes-you {
+  margin: 8px;
+  width: calc(100% / 3 - 16px);
+  height: 100px;
+}
+
+.mywall__feature-body .messages {
+  width: 100%;
+}

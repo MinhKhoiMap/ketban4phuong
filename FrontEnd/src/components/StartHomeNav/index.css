@@ -1,0 +1,111 @@
+.start-home__nav {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.99), transparent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.start-home__nav-left {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.start-home-logo {
+  width: 180px;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.start-home__menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.start-home__menu > li {
+  padding: 0 14px;
+}
+
+.start-home__menu h4 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.start-home__menu li:hover h4 {
+  color: var(--primary-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.start-home__menu li:hover .start-home__submenu {
+  display: block;
+}
+
+.start-home__submenu {
+  color: #fff;
+  position: absolute;
+  padding: 10px;
+  display: none;
+}
+
+.start-home__submenu li {
+  margin: 8px -10px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.start-home__submenu > li:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.start-home__submenu-child {
+  margin-left: 30px;
+  color: #fff;
+}
+
+.start-home__submenu-child li:hover {
+  color: var(--primary-color);
+  text-decoration: overline;
+}
+
+.start-home__nav-right button {
+  outline: none;
+  border: none;
+  background-color: unset;
+  transition: all 0.1s linear;
+}
+
+.start-home__nav-right button:hover {
+  cursor: pointer;
+  filter: brightness(0.86);
+}
+
+.start-home__nav-right .choose__language {
+  margin-right: 40px;
+  padding: 10px 8px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.start-home__nav-right .choose__language span {
+  font-size: 1.9rem;
+  margin-left: 8px;
+}
+
+.start-home__nav-right .login-btn {
+  padding: 10px 20px;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--color-text-btn);
+  background-color: #fff;
+  border-radius: 30px;
+}

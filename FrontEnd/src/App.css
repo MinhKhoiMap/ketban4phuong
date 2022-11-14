@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --color-text-btn: rgb(33, 38, 46);
+  --text-color: #505965;
+  --primary-color: #d6002f;
+  --line-color: #d4d8de;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Readex Pro", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+ul {
+  list-style-type: none;
+}

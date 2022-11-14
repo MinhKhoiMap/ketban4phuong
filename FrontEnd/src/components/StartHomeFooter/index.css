@@ -1,0 +1,96 @@
+.start-home__footer-feature-list {
+  padding-top: 40px;
+  margin: 0 -26px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.start-home__footer-feature-item,
+.start-home__footer-feature-FAQ {
+  margin: 0 30px;
+}
+
+.start-home__footer-feature-item h3 {
+  margin-bottom: 14px;
+  font-size: 2rem;
+}
+
+.social-media-icon__wrapper {
+  margin: 0 -10px;
+}
+
+.social-media-icon__wrapper i {
+  font-size: 2.4rem;
+  margin: 0 10px;
+}
+
+.start-home__footer-feature-FAQ p {
+  margin-top: 14px;
+}
+
+.start-home__footer-feature li,
+.start-home__footer-feature-FAQ p {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.start-home__footer-feature li {
+  margin-top: 14px;
+}
+
+.start-home__footer-feature li:hover,
+.start-home__footer-feature-FAQ p:hover,
+.social-media-icon__wrapper i:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.start-home__letter {
+  margin-top: 28px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line-color);
+  border-bottom: 1px solid var(--line-color);
+  user-select: text;
+}
+
+.start-home__letter p::selection {
+  background: #000;
+  color: #fff;
+}
+
+.start-home__letter p::-moz-selection {
+  background: #000;
+  color: #fff;
+}
+
+.start-home__download,
+.start-home__images-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.start-home__images-wrap {
+  margin-left: 30px;
+}
+
+.start-home__images-wrap img {
+  margin-right: 20px;
+}
+
+.start-home__paragraph p {
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.start-home__paragraph p:first-child {
+  margin-bottom: 10px;
+}
+
+.start-home__copyright {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 300;
+}

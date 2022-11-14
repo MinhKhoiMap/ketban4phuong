@@ -1,0 +1,93 @@
+:root {
+  --header-height: 50px;
+}
+
+.choices-card {
+  position: relative;
+}
+
+.choices-card__head {
+  color: #fff;
+  height: var(--header-height);
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 12px 0;
+  text-align: center;
+  border-bottom: 1px solid #3c444f;
+  background-color: #000;
+  text-transform: capitalize;
+}
+
+.choices-card__body {
+  overflow-y: auto;
+}
+
+.choices-card__body::-webkit-scrollbar {
+  display: none;
+}
+
+.choices-card__note {
+  margin: 20px 0;
+  padding: 0 12px;
+  color: #939ba7;
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+.choices-card__body-label {
+  margin: 12px 0;
+  padding: 0 12px;
+  color: #939ba7;
+  display: flex;
+  justify-content: space-between;
+}
+
+.choices-card__body-label p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.choices-card__body-label span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.choices-card__tags-container {
+  margin: 12px 0;
+  padding: 16px 12px;
+  background-color: #000;
+}
+
+.choices-card__tag {
+  margin: 4px;
+  padding: 4px 8px;
+  color: #939ba7;
+  font-size: 1.3rem;
+  font-weight: 300;
+  display: inline-block;
+  border: 1px solid #939ba7;
+  border-radius: 20px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.choices-card__tag.chosen {
+  color: #fd267a;
+  border-color: #fd267a;
+}
+
+.choices-card__done-btn {
+  padding: 5px 8px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #ff4458;
+  font-size: 1.4rem;
+  font-weight: 700;
+  position: absolute;
+  right: 4px;
+  top: calc(var(--header-height) / 2 - 15px);
+}

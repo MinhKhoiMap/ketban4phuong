@@ -1,0 +1,71 @@
+.profile-detail__update {
+  padding-top: 20px;
+}
+
+.profile-detail__update h4 {
+  padding: 8px 16px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #939ba7;
+}
+
+.profile-details__content {
+  padding: 0 16px;
+  height: 68px;
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-details__content p {
+  color: #939ba7;
+  font-size: 1.5rem;
+  font-weight: 300;
+  user-select: none;
+}
+
+.profile-details__content input {
+  font-family: "Readex Pro", sans-serif;
+  font-size: 1.6rem;
+  padding: 4px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #939ba7;
+  border-bottom: 2px solid;
+  border-radius: 5px;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right bottom, #6a5af9, #f62682);
+}
+
+.profile-details__content i {
+  color: #ed4ee7;
+  font-size: 2rem;
+  transition: all 0.1s ease-in;
+}
+
+.profile-details__content i:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.update-btn {
+  margin-top: 30px;
+  padding: 18px;
+  color: #ff4458;
+  font-size: 1.7rem;
+  font-weight: 500;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.update-btn:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, #d66d75, #e29587);
+  color: #fff;
+}
