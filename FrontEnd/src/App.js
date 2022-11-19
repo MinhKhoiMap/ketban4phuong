@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import CreateAccount from "./pages/CreateAccount";
+import Test from "./pages/test";
 
 import MyWall from "./pages/MyWall";
 import StartHome from "./pages/StartHome";
@@ -34,6 +35,7 @@ function App() {
         </Route>
       </Routes> */}
       <CreateAccount />
+      {/* <Test /> */}
     </div>
   );
 }

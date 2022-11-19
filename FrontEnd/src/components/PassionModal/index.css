@@ -1,0 +1,91 @@
+.passion-modal__wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 999999;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@keyframes scaleOut {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.passion-modal__section {
+  margin: auto;
+  padding: 36px 44px;
+  width: 550px;
+  height: 600px;
+  background-color: #000;
+  overflow-y: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: scaleOut 0.2s linear;
+}
+
+.passion-modal__section::-webkit-scrollbar {
+  display: none;
+}
+
+.head-title {
+  margin-bottom: 20px;
+  color: #e9ebee;
+  font-size: 3.2rem;
+}
+
+.note {
+  margin-bottom: 12px;
+  color: #939ba7;
+  font-size: 1.2rem;
+}
+
+.passions-tag__group {
+  width: fit-content;
+  margin: 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.passions-tag__input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* opacity: 0; */
+  cursor: pointer;
+}
+
+.passions-tag__input.chosen ~ .passions-tag {
+  color: #fd267a;
+  border-color: #fd267a;
+}
+
+.passions-tag {
+  padding: 4px 8px;
+  color: #939ba7;
+  font-size: 1.3rem;
+  font-weight: 300;
+  display: inline-block;
+  border: 1px solid #939ba7;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.passion-modal__footer button {
+  padding: 12px 24px;
+  width: 100%;
+  font-family: "Readex Pro", sans-serif;
+  color: #e9ebee;
+  font-size: 1.6rem;
+  background-image: linear-gradient(45deg, #fd267a, #ff6036);
+  border-radius: 100px;
+  cursor: pointer;
+}

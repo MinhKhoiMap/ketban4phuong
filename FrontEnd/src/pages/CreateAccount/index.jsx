@@ -1,20 +1,118 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import axios from "axios";
+import http from "../../http-common";
 import { Link } from "react-router-dom";
+import PassionModal from "../../components/PassionModal";
 import "./index.css";
 
 const CreateAccount = () => {
-  const [nameValue, setNameValue] = useState();
+  const [nameValue, setNameValue] = useState("");
   const [dateValue, setDateValue] = useState();
   const [monthValue, setMonthValue] = useState();
   const [yearValue, setYearValue] = useState();
+  const [genderValue, setGenderValue] = useState();
+  const [genderRefValue, setGenderRefValue] = useState();
+  const [imageList, setImageList] = useState(["", "", "", "", "", ""]);
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [showPassionModal, setShowPassionModal] = useState();
+  const [button, setButton] = useState(false);
 
-  const handleOnChange = (e) => {
-    console.log([e.target]);
+  const [genderPrev, setGenderPrev] = useState();
+  const [genderRefPrev, setGenderRefPrev] = useState();
+  // const testRef = useRef();
+  const formData = new FormData();
+
+  const handleUploadImage = (e) => {
+    // console.log([e.target]);
+    if (!e.target.files || e.target.files.length === 0) {
+      return;
+    }
+    setSelectedFiles([...selectedFiles, e.target.files[0]]);
   };
 
+  const handleSetDateValue = (e) => {
+    if (e.target.value > 31) {
+      e.target.classList.add("error");
+    } else e.target.classList.remove("error");
+    setDateValue(e.target.value);
+  };
+
+  const handleSetMonthValue = (e) => {
+    if (e.target.value > 12) {
+      e.target.classList.add("error");
+    } else e.target.classList.remove("error");
+    setMonthValue(e.target.value);
+  };
+
+  const handleSetYearValue = (e) => {
+    if (e.target.value > new Date().getFullYear() - 18) {
+      e.target.classList.add("error");
+    } else e.target.classList.remove("error");
+    setYearValue(e.target.value);
+  };
+
+  const handleSetName = (e) => {
+    if (!e.target.value) e.target.classList.add("error");
+    else {
+      e.target.classList.remove("error");
+    }
+    setNameValue(e.target.value);
+  };
+
+  useEffect(() => {
+    // console.log("object");
+    let url = [];
+    for (let i = 0; i < 6; i++) {
+      // console.log(selectedFiles, "selectedFiles");
+      if (selectedFiles[i]) {
+        url[i] = URL.createObjectURL(selectedFiles[i]);
+      } else url[i] = "";
+    }
+    setImageList(url);
+  }, [selectedFiles.length]);
+
+  useEffect(() => {
+    if (
+      selectedFiles.length >= 2 &&
+      nameValue &&
+      dateValue < 32 &&
+      monthValue < 13 &&
+      yearValue
+    ) {
+      setButton(true);
+    } else setButton(false);
+  }, [selectedFiles.length, nameValue, dateValue, monthValue, yearValue]);
+
   const handleGenderChoose = (e) => {
+    genderPrev?.classList.remove("chose");
     e.target.classList.add("chose");
+    setGenderPrev(e.target);
+    setGenderValue(e.target.value);
+  };
+
+  const handleGenderRef = (e) => {
+    genderRefPrev?.classList.remove("chose");
+    e.target.classList.add("chose");
+    setGenderRefPrev(e.target);
+    setGenderRefValue(e.target.value);
+  };
+  const handleDeleteImage = (e) => {
+    // console.log(testRef, "test Ref");
+    setSelectedFiles((prev) =>
+      prev.filter((file, index) => {
+        console.log(index != e.target.attributes.index.value);
+        return index != e.target.attributes.index.value;
+      })
+    );
+  };
+
+  const handleSubmitFormData = (e) => {
+    e.preventDefault();
+    console.log(e, "đây là event");
+    formData.set("album-profile", selectedFiles);
+    axios.post("http://localhost:3002/test", formData, {
+      headers: "multipart/form-data",
+    });
   };
 
   return (
@@ -41,93 +139,200 @@ const CreateAccount = () => {
       <div className="create-account__container">
         <div className="create-account__body">
           <h2 className="create-account__label">TẠO TÀI KHOẢN</h2>
-          <div className="create-account__info">
-            <div className="create-account__info-main">
-              <div className="create-account__info-group">
-                <label htmlFor="#name">Tên của bạn</label>
-                <br />
-                <input type="text" id="name" placeholder="Tên của bạn" />
-              </div>
-              <div className="create-account__info-group">
-                <label htmlFor="#birthday">Ngày sinh của bạn</label>
-                <br />
-                <div id="birthday">
-                  <input type="text" placeholder="DD" />
-                  <input type="text" placeholder="MM" />
-                  <input type="text" placeholder="YYYY" />
-                </div>
-              </div>
-              <div className="create-account__info-group">
-                <label htmlFor="#gender">Giới tính của bạn</label>
-                <br />
-                <div id="gender">
+          <form
+            // action="http://localhost:3002/test"
+            className="create-account__info-photo-upload"
+            // method="post"
+            encType="multipart/form-data"
+            onSubmit={handleSubmitFormData}
+          >
+            <div className="create-account__info">
+              <div className="create-account__info-main">
+                <div className="create-account__info-group">
+                  <label htmlFor="#name">Tên của bạn</label>
+                  <br />
                   <input
-                    type="button"
-                    value="Man"
-                    onClick={handleGenderChoose}
-                  />
-                  <input
-                    type="button"
-                    value="Woman"
-                    onClick={handleGenderChoose}
-                  />
-                  <input
-                    type="button"
-                    value="More"
-                    onClick={handleGenderChoose}
+                    type="text"
+                    id="name"
+                    name="username"
+                    placeholder="Tên của bạn"
+                    value={nameValue}
+                    onChange={handleSetName}
                   />
                 </div>
+                <div className="create-account__info-group">
+                  <label htmlFor="#birthday">Ngày sinh của bạn</label>
+                  <br />
+                  <div id="birthday">
+                    <input
+                      type="text"
+                      placeholder="DD"
+                      value={dateValue}
+                      name="birthday"
+                      onChange={handleSetDateValue}
+                    />
+                    <input
+                      type="text"
+                      placeholder="MM"
+                      value={monthValue}
+                      name="birthday"
+                      onChange={handleSetMonthValue}
+                    />
+                    <input
+                      type="text"
+                      placeholder="YYYY"
+                      value={yearValue}
+                      name="birthday"
+                      onChange={handleSetYearValue}
+                    />
+                  </div>
+                </div>
+                <div className="create-account__info-group">
+                  <label htmlFor="#gender">Giới tính của bạn</label>
+                  <br />
+                  <div id="gender">
+                    <div className="radio-part">
+                      <input
+                        type="radio"
+                        value="Man"
+                        onClick={handleGenderChoose}
+                        name="gender"
+                        placeholder="Man"
+                      />
+                      <div className="title__radio">Man</div>
+                    </div>
+                    <div className="radio-part">
+                      <input
+                        type="radio"
+                        value="Woman"
+                        onClick={handleGenderChoose}
+                        name="gender"
+                      />
+                      <div className="title__radio">Woman</div>
+                    </div>
+                    <div className="radio-part">
+                      <input
+                        type="radio"
+                        value="More"
+                        onClick={handleGenderChoose}
+                        name="gender"
+                      />
+                      <div className="title__radio">More</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="create-account__info-group">
+                  <label htmlFor="#genderRefer">
+                    Kết nối người có giới tính
+                  </label>
+                  <br />
+                  <div id="genderRefer">
+                    <div className="radio-part">
+                      <input
+                        type="radio"
+                        value="Man"
+                        onClick={handleGenderRef}
+                        name="genderRefer"
+                      />
+                      <div className="title__radio">Man</div>
+                    </div>
+                    <div className="radio-part">
+                      <input
+                        type="radio"
+                        value="Woman"
+                        onClick={handleGenderRef}
+                        name="genderRefer"
+                      />
+                      <div className="title__radio">Woman</div>
+                    </div>
+                    <div className="radio-part">
+                      <input
+                        type="radio"
+                        value="Everyone"
+                        onClick={handleGenderRef}
+                        name="genderRefer"
+                      />
+                      <div className="title__radio">Everyone</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="create-account__info-group">
-                <label htmlFor="#genderRefer">Kết nối người có giới tính</label>
-                <br />
-                <div id="genderRefer">
-                  <input type="button" value="Man" />
-                  <input type="button" value="Woman" />
-                  <input type="button" value="Everyone" />
+              <div className="create-account__info-photos">
+                <h4>Ảnh hồ sơ</h4>
+                {imageList.map((item, index) => (
+                  <div className="create-account__info-upload-part" key={index}>
+                    <input
+                      type="file"
+                      name="album-profile"
+                      className="uploadImage-input"
+                      accept=".jpg, .png, .webp"
+                      onChange={handleUploadImage}
+                      // ref={testRef}
+                      style={{
+                        backgroundImage: `url(${item})`,
+                        border: `${item && "none"}`,
+                      }}
+                    />
+                    {/* {console.log(testRef.current?.value)} */}
+                    <span>
+                      {!item ? (
+                        <i
+                          className="fa-solid fa-circle-plus"
+                          style={{ color: "#ff4458" }}
+                        ></i>
+                      ) : (
+                        <i
+                          className="fa-solid fa-circle-xmark"
+                          style={{ color: "#fff" }}
+                          onClick={handleDeleteImage}
+                          index={index}
+                        ></i>
+                      )}
+                    </span>
+                  </div>
+                ))}
+                <p className="note">Thêm ít nhất 2 ảnh để tiếp tục</p>
+              </div>
+            </div>
+            <PassionModal
+              setShowPassionModal={setShowPassionModal}
+              show={showPassionModal}
+            />
+            <div className="create-account__optionals-more">
+              <div className="header">
+                <div className="line"></div>
+                <h3>Tùy chọn</h3>
+                <div className="line"></div>
+              </div>
+              <div className="main">
+                <div className="create-account__option-group">
+                  <p className="label">Sở thích</p>
+                  <button
+                    className="create-account__option-choose-btn"
+                    onClick={() => {
+                      setShowPassionModal(true);
+                    }}
+                    type="button"
+                  >
+                    <i className="fa-solid fa-plus"></i>
+                    <span>Thêm sở thích</span>
+                  </button>
                 </div>
               </div>
             </div>
-            <div className="create-account__info-photos">
-              <form action="" className="create-account__info-photo-upload">
-                <input
-                  type="file"
-                  name="album-profile"
-                  className="uploadImage-input"
-                  onChange={handleOnChange}
-                />
-                <input
-                  type="file"
-                  name="album-profile"
-                  className="uploadImage-input"
-                />
-                <input
-                  type="file"
-                  name="album-profile"
-                  className="uploadImage-input"
-                />
-                <input
-                  type="file"
-                  name="album-profile"
-                  className="uploadImage-input"
-                />
-                <input
-                  type="file"
-                  name="album-profile"
-                  className="uploadImage-input"
-                />
-                <input
-                  type="file"
-                  name="album-profile"
-                  className="uploadImage-input"
-                />
-              </form>
-            </div>
-          </div>
-          <footer className="create-account__footer">
-            <button className="create-account_continue-btn">Continue</button>
-            <p>Đã có tài khoản? Đăng nhập ngay.</p>
-          </footer>
+            <footer className="create-account__footer">
+              <button
+                className={`create-account_continue-btn ${
+                  button ? "enabled" : "disabled"
+                }`}
+                // disabled={!button ? true : false}
+                type="submit"
+              >
+                Tiếp tục
+              </button>
+              <p>Đã có tài khoản? Đăng nhập ngay.</p>
+            </footer>
+          </form>
         </div>
       </div>
     </div>

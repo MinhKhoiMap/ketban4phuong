@@ -1,8 +1,10 @@
 import { Router } from "express";
 import userModelClass from "../DAL/models/userModels";
+import multer from "multer";
 
-const usersRoute = new Router();
+const usersRoute = Router();
 const userModel = new userModelClass();
+
 
 // Read
 usersRoute.get("getAll", (req, res) => {

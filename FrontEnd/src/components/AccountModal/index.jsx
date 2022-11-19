@@ -6,13 +6,12 @@ const AccountModal = ({ label, setShowModal }) => {
     setShowModal(false);
   };
 
-  const handlePropagation = (e) => {
-    e.stopPropagation();
-  };
-
   return (
     <div className="account-modal__wrapper" onClick={handleCloseModal}>
-      <div className="account-modal__section" onClick={handlePropagation}>
+      <div
+        className="account-modal__section"
+        onClick={(e) => e.stopPropagation()}
+      >
         <header className="account-modal__header">
           <div className="account-modal__header-icon">
             <svg
@@ -56,7 +55,10 @@ const AccountModal = ({ label, setShowModal }) => {
           </div>
 
           <div className="account-modal__btn-wrap">
-            <a href="http://localhost:3002/auth/google" className="log-in-with-gg">
+            <a
+              href="http://localhost:3002/auth/google"
+              className="log-in-with-gg"
+            >
               <img src="images/gg_logo.svg" />
               <span>Đăng nhập với Google</span>
             </a>

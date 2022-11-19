@@ -5,12 +5,14 @@ import DatabaseClass from "./DAL/database";
 import usersRoute from "./routes/usersRoute";
 import loginRoute from "./routes/loginRoute";
 import passport from "passport";
+import test from "./routes/testRoute";
 
 const app = express();
 const db = new DatabaseClass();
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(
   session({
@@ -32,6 +34,7 @@ passport.deserializeUser((user, done) => {
 
 // app.use("/api/get-sers", usersRoute);
 app.use("/auth", loginRoute);
+app.use("/test", test);
 
 app.listen(3002, () => {
   console.log("App is listening");
