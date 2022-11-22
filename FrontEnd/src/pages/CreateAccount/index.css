@@ -83,6 +83,7 @@ input#name {
   background-color: #111418;
   border: 2px solid #3c444f;
   color: #e9ebee;
+  font-family: "Readex Pro", sans-serif;
 }
 
 input#name.error {
@@ -101,6 +102,7 @@ input#name:focus {
   background-color: #111418;
   border: 2px solid #3c444f;
   color: #e9ebee;
+  font-family: "Readex Pro", sans-serif;
 }
 
 #birthday input.error {
@@ -261,10 +263,14 @@ input#name:focus {
 
 .create-account__footer {
   margin-top: 40px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .create-account__footer p {
+  width: fit-content;
   margin-top: 20px;
   color: #939ba7;
   font-size: 1.7rem;
@@ -288,14 +294,12 @@ input#name:focus {
   letter-spacing: 0.8px;
   border: none;
   outline: none;
-}
-
-.create-account_continue-btn.enabled {
   color: #fff;
   background-image: linear-gradient(45deg, #fd267a, #ff6036);
 }
 
-.create-account_continue-btn.disabled {
+.create-account_continue-btn:disabled {
   color: #656e7b;
   background-color: #21262e;
+  background-image: none;
 }

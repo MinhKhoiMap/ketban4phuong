@@ -7,20 +7,20 @@ import "./index.css";
 
 const CreateAccount = () => {
   const [nameValue, setNameValue] = useState("");
-  const [dateValue, setDateValue] = useState();
-  const [monthValue, setMonthValue] = useState();
-  const [yearValue, setYearValue] = useState();
-  const [genderValue, setGenderValue] = useState();
-  const [genderRefValue, setGenderRefValue] = useState();
+  const [dateValue, setDateValue] = useState("");
+  const [monthValue, setMonthValue] = useState("");
+  const [yearValue, setYearValue] = useState("");
+  const [genderValue, setGenderValue] = useState("");
+  const [genderRefValue, setGenderRefValue] = useState("");
   const [imageList, setImageList] = useState(["", "", "", "", "", ""]);
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [showPassionModal, setShowPassionModal] = useState();
-  const [button, setButton] = useState(false);
+  const [passionsList, setPassionsList] = useState([]);
 
+  const [showPassionModal, setShowPassionModal] = useState(false);
+  const [buttonActive, setButtonActive] = useState(false);
   const [genderPrev, setGenderPrev] = useState();
   const [genderRefPrev, setGenderRefPrev] = useState();
   // const testRef = useRef();
-  const formData = new FormData();
 
   const handleUploadImage = (e) => {
     // console.log([e.target]);
@@ -79,8 +79,8 @@ const CreateAccount = () => {
       monthValue < 13 &&
       yearValue
     ) {
-      setButton(true);
-    } else setButton(false);
+      setButtonActive(true);
+    } else setButtonActive(false);
   }, [selectedFiles.length, nameValue, dateValue, monthValue, yearValue]);
 
   const handleGenderChoose = (e) => {
@@ -100,16 +100,18 @@ const CreateAccount = () => {
     // console.log(testRef, "test Ref");
     setSelectedFiles((prev) =>
       prev.filter((file, index) => {
-        console.log(index != e.target.attributes.index.value);
-        return index != e.target.attributes.index.value;
+        console.log(index !== e.target.attributes.index.value);
+        return index !== e.target.attributes.index.value;
       })
     );
   };
-
+  const formRef = useRef();
   const handleSubmitFormData = (e) => {
     e.preventDefault();
-    console.log(e, "đây là event");
-    formData.set("album-profile", selectedFiles);
+    const formData = new FormData(formRef.current);
+    console.log(selectedFiles);
+    formData.append("album-profile", "faf", selectedFiles);
+    formData.append("passions", JSON.stringify(passionsList));
     axios.post("http://localhost:3002/test", formData, {
       headers: "multipart/form-data",
     });
@@ -141,6 +143,7 @@ const CreateAccount = () => {
           <h2 className="create-account__label">TẠO TÀI KHOẢN</h2>
           <form
             // action="http://localhost:3002/test"
+            ref={formRef}
             className="create-account__info-photo-upload"
             // method="post"
             encType="multipart/form-data"
@@ -263,7 +266,7 @@ const CreateAccount = () => {
                   <div className="create-account__info-upload-part" key={index}>
                     <input
                       type="file"
-                      name="album-profile"
+                      // name="album-profile"
                       className="uploadImage-input"
                       accept=".jpg, .png, .webp"
                       onChange={handleUploadImage}
@@ -294,10 +297,23 @@ const CreateAccount = () => {
                 <p className="note">Thêm ít nhất 2 ảnh để tiếp tục</p>
               </div>
             </div>
-            <PassionModal
-              setShowPassionModal={setShowPassionModal}
+
+            {showPassionModal && (
+              <PassionModal
+                show={showPassionModal}
+                setShow={setShowPassionModal}
+                setPassionsList={setPassionsList}
+                passionsList={passionsList}
+              />
+            )}
+
+            {/* <PassionModal
               show={showPassionModal}
-            />
+              setShow={setShowPassionModal}
+              setPassionsList={setPassionsList}
+              passionsList={passionsList}
+            /> */}
+
             <div className="create-account__optionals-more">
               <div className="header">
                 <div className="line"></div>
@@ -322,15 +338,13 @@ const CreateAccount = () => {
             </div>
             <footer className="create-account__footer">
               <button
-                className={`create-account_continue-btn ${
-                  button ? "enabled" : "disabled"
-                }`}
-                // disabled={!button ? true : false}
+                className={`create-account_continue-btn`}
+                disabled={!buttonActive ? true : false}
                 type="submit"
               >
                 Tiếp tục
               </button>
-              <p>Đã có tài khoản? Đăng nhập ngay.</p>
+              <p>Đã có tài khoản? Đăng nhập ngay!</p>
             </footer>
           </form>
         </div>

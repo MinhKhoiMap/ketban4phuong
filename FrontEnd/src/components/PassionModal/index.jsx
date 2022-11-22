@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./index.css";
 
-const PassionModal = ({ setShowPassionModal, show }) => {
+const PassionModal = ({ show, setShow, passionsList, setPassionsList }) => {
   const tagsArray = [
     "Thế hệ 9X",
     "Harry Potter",
@@ -20,24 +20,32 @@ const PassionModal = ({ setShowPassionModal, show }) => {
   const [selectedTagsNumber, setSelectedTagsNumber] = useState(0);
 
   const handleChooseTag = (e) => {
-    // console.log([e]);
-    if (selectedTagsNumber < 5 || e.target.classList.contains("chosen")) {
-      e.target.classList.toggle("chosen");
-      if (e.target.classList.contains("chosen"))
+    console.log([e.target], "passion modal");
+    if (e.target.classList.contains("chosen")) {
+      e.target.classList.remove("chosen");
+      setSelectedTagsNumber((prev) => prev - 1);
+      setPassionsList((prev) =>
+        prev.filter((passion) => passion !== e.target.innerText)
+      );
+    } else {
+      if (selectedTagsNumber < 5) {
+        e.target.classList.add("chosen");
         setSelectedTagsNumber((prev) => prev + 1);
-      else setSelectedTagsNumber((prev) => prev - 1);
+        setPassionsList([...passionsList, e.target.innerText]);
+      }
     }
   };
 
   const handleDoneChoose = () => {
-    setShowPassionModal(false);
+    console.log(passionsList);
+    setShow(false);
   };
 
   return (
     <div
       className="passion-modal__wrapper"
-      onClick={() => setShowPassionModal(false)}
-      style={{ display: `${show ? "flex" : "none"}` }}
+      onClick={() => setShow(false)}
+      style={{ display: show ? "flex" : "none" }}
     >
       <div
         className="passion-modal__section"
@@ -50,17 +58,16 @@ const PassionModal = ({ setShowPassionModal, show }) => {
             vào hồ sơ.
           </p>
           <div className="passion-modal__tags-container">
-            {tagsArray.map((tag, index) => (
-              <div className="passions-tag__group" key={tag}>
-                <input
-                  className="passions-tag__input"
-                  onClick={handleChooseTag}
-                  value={tag}
-                  type="checkbox"
-                  name="passions"
-                />
-                <span className="passions-tag">{tag}</span>
-              </div>
+            {tagsArray.map((tag) => (
+              <span
+                className={`passions-tag ${
+                  passionsList.includes(tag) ? "chosen" : ""
+                }`}
+                onClick={handleChooseTag}
+                key={tag}
+              >
+                {tag}
+              </span>
             ))}
           </div>
         </div>

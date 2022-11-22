@@ -7,6 +7,7 @@
   z-index: 999999;
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
+  user-select: none;
 }
 
 @keyframes scaleOut {
@@ -48,27 +49,28 @@
   font-size: 1.2rem;
 }
 
-.passions-tag__group {
+/* .passions-tag__group {
   width: fit-content;
   margin: 4px;
   position: relative;
   display: inline-block;
-}
+} */
 
-.passions-tag__input {
+/* .passions-tag__input {
   width: 100%;
   height: 100%;
   position: absolute;
-  /* opacity: 0; */
+  opacity: 0;
   cursor: pointer;
-}
+} */
 
-.passions-tag__input.chosen ~ .passions-tag {
+/* .passions-tag__input.chosen ~ .passions-tag {
   color: #fd267a;
   border-color: #fd267a;
-}
+} */
 
 .passions-tag {
+  margin: 4px;
   padding: 4px 8px;
   color: #939ba7;
   font-size: 1.3rem;
@@ -76,7 +78,13 @@
   display: inline-block;
   border: 1px solid #939ba7;
   border-radius: 20px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
+  cursor: pointer;
+}
+
+.passions-tag.chosen {
+  color: #fd267a;
+  border-color: #fd267a;
 }
 
 .passion-modal__footer button {
