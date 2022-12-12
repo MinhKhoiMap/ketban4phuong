@@ -15,8 +15,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<StartHome />} />
-        <Route path="app" element={<MyWall />}>
+        <Route path="ketban4phuong/" element={<StartHome />} />
+        <Route path="ketban4phuong/app" element={<MyWall />}>
           <Route path="profile">
             <Route path="edit" />
             <Route path="edit/interests" />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./index.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import StartHomeNav from "../../components/StartHomeNav";
 import StartHomeShare from "../../components/StartHomeShare";
 import StartHomeFooter from "../../components/StartHomeFooter";
@@ -12,7 +12,7 @@ const StartHome = () => {
   const [showNav, setShowNav] = useState(true);
   const [labelModal, setLabelModal] = useState("");
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleFadeScroll = (e) => {
     let offsetHeightSection = e.target.offsetHeight;

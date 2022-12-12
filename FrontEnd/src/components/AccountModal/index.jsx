@@ -63,7 +63,7 @@ const AccountModal = ({ label, setShowModal }) => {
             >
               
             </a> */}
-            <Link to="/app/recs">
+            <Link to="ketban4phuong/app/recs">
               <div className="log-in-with-gg">
                 <img src="images/gg_logo.svg" />
                 <span>Đăng nhập với Google</span>
