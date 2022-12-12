@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ketban4phuong/static/css/main.4756b0bc.css",
-    "main.js": "/ketban4phuong/static/js/main.abdaed9f.js",
+    "main.js": "/ketban4phuong/static/js/main.a54020c0.js",
     "static/media/starthome_background.webp": "/ketban4phuong/static/media/starthome_background.da72db1baf7de8794c27.webp",
     "index.html": "/ketban4phuong/index.html",
     "main.4756b0bc.css.map": "/ketban4phuong/static/css/main.4756b0bc.css.map",
-    "main.abdaed9f.js.map": "/ketban4phuong/static/js/main.abdaed9f.js.map"
+    "main.a54020c0.js.map": "/ketban4phuong/static/js/main.a54020c0.js.map"
   },
   "entrypoints": [
     "static/css/main.4756b0bc.css",
-    "static/js/main.abdaed9f.js"
+    "static/js/main.a54020c0.js"
   ]
 }
