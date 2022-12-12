@@ -14,7 +14,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<StartHome />} />
         <Route path="app" element={<MyWall />}>
           <Route path="profile">
@@ -33,8 +33,8 @@ function App() {
             <Route path="gender" />
           </Route>
         </Route>
-      </Routes> */}
-      <CreateAccount />
+      </Routes>
+      {/* <CreateAccount /> */}
       {/* <Test /> */}
     </div>
   );

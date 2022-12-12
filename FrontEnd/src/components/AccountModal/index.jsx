@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 const AccountModal = ({ label, setShowModal }) => {
   const handleCloseModal = (e) => {
@@ -55,13 +56,19 @@ const AccountModal = ({ label, setShowModal }) => {
           </div>
 
           <div className="account-modal__btn-wrap">
-            <a
-              href="http://localhost:3002/auth/google"
+            {/* <a
+              // href="http://localhost:3002/auth/google"
+              href="/app/recs"
               className="log-in-with-gg"
             >
-              <img src="images/gg_logo.svg" />
-              <span>Đăng nhập với Google</span>
-            </a>
+              
+            </a> */}
+            <Link to="/app/recs">
+              <div className="log-in-with-gg">
+                <img src="images/gg_logo.svg" />
+                <span>Đăng nhập với Google</span>
+              </div>
+            </Link>
             <button className="another-options">tùy chọn khác</button>
           </div>
         </section>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+// import { useState } from "react";
 import EditCardOptionsChoose from "../EditCardOptionsChoose";
 import EditCardOptionsText from "../EditCardOptionsText";
 import "./index.css";
@@ -7,20 +8,16 @@ import { Link } from "react-router-dom";
 const EditProfileCard = () => {
   const user = {
     name: "Pham Minh Khoi",
-    imgUrl: [
-      "https://scontent.fsgn13-2.fna.fbcdn.net/v/t1.15752-9/272166962_619424902685934_4367621749521895868_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=tKT0WCgRaUsAX8tdMoo&_nc_ht=scontent.fsgn13-2.fna&oh=03_AdTthRnPKiXwDfxhO8HKENE4_CmdjpglALcsUs7do4Ufyg&oe=6377CABF",
-      "/images/VelvetSun.jpg",
-      "/images/VelvetSun.jpg",
-    ],
+    imgUrl: ["/images/VelvetSun.jpg", "/images/VelvetSun.jpg"],
   };
 
-  const [introduceTextInput, setIntroduceTextInput] = useState("");
-  const [wordsUsedNumber, setWordsUsedNumber] = useState(0);
+  // const [introduceTextInput, setIntroduceTextInput] = useState("");
+  // const [wordsUsedNumber, setWordsUsedNumber] = useState(0);
 
-  const handleIntroduceTextInputChange = (e) => {
-    setIntroduceTextInput(e.target.value);
-    setWordsUsedNumber(e.target.value.length);
-  };
+  // const handleIntroduceTextInputChange = (e) => {
+  //   setIntroduceTextInput(e.target.value);
+  //   setWordsUsedNumber(e.target.value.length);
+  // };
 
   const renderImgCard = () => {
     let imgCardArr = [];
@@ -92,7 +89,7 @@ const EditProfileCard = () => {
         <div className="edit-card__edit-img-group">
           <div className="edit-card__edit-img-wrapper">{renderImgCard()}</div>
           <div className="edit-card__edit-img-note">
-            Thêm video, ảnh hoặc loop để hoàn thành thêm 4% hồ sơ của bạn, cùng
+            Thêm video, ảnh hoặc loop để hoàn thành hồ sơ của bạn, cùng
             cơ hội nhận được nhiều lượt Thích hơn.
           </div>
           <div className="edit-card__img-footer">
